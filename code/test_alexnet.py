@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
     model = hopenet.AlexNet(66)
 
-    print 'Loading snapshot.'
+    print('Loading snapshot.')
     # Load snapshot
     saved_state_dict = torch.load(snapshot_path)
     model.load_state_dict(saved_state_dict)
