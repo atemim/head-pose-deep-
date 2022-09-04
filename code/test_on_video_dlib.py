@@ -116,13 +116,13 @@ if __name__ == '__main__':
 
         for idx, det in enumerate(dets):
             # Get x_min, y_min, x_max, y_max, conf
-            x_min = det.rect.left()
-            y_min = det.rect.top()
-            x_max = det.rect.right()
-            y_max = det.rect.bottom()
+            x_min = int(det.rect.left())
+            y_min = int(det.rect.top())
+            x_max = int(det.rect.right())
+            y_max = int(det.rect.bottom())
             conf = det.confidence
-
-            if conf > 0.5:
+            
+            if conf > 0.7:
                 bbox_width = abs(x_max - x_min)
                 bbox_height = abs(y_max - y_min)
                 x_min -= 2 * bbox_width / 4
