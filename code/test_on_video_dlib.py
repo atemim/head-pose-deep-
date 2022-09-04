@@ -116,10 +116,10 @@ if __name__ == '__main__':
 
         for idx, det in enumerate(dets):
             # Get x_min, y_min, x_max, y_max, conf
-            x_min = int(det.rect.left())
-            y_min = int(det.rect.top())
-            x_max = int(det.rect.right())
-            y_max = int(det.rect.bottom())
+            x_min = det.rect.left()
+            y_min = det.rect.top()
+            x_max = det.rect.right()
+            y_max = det.rect.bottom()
             conf = det.confidence
             
             if conf > 0.7:
@@ -132,7 +132,7 @@ if __name__ == '__main__':
                 x_min = max(x_min, 0); y_min = max(y_min, 0)
                 x_max = min(frame.shape[1], x_max); y_max = min(frame.shape[0], y_max)
                 # Crop image
-                img = cv2_frame[y_min:y_max,x_min:x_max]
+                img = cv2_frame[int(y_min):int(y_max),int(x_min):int(x_max)]
                 img = Image.fromarray(img)
 
                 # Transform
