@@ -122,7 +122,7 @@ if __name__ == '__main__':
             y_max = det.rect.bottom()
             conf = det.confidence
 
-            if conf > 1.0:
+            if conf > 0.5:
                 bbox_width = abs(x_max - x_min)
                 bbox_height = abs(y_max - y_min)
                 x_min -= 2 * bbox_width / 4
